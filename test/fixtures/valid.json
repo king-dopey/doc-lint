@@ -1,0 +1,15 @@
+{
+  "name": "doc-lint",
+  "version": "1.0.0",
+  "description": "Documentation linting service",
+  "features": [
+    "markdown",
+    "mermaid",
+    "json",
+    "xml"
+  ],
+  "config": {
+    "parallel": true,
+    "cache": false
+  }
+}

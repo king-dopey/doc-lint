@@ -1,0 +1,9 @@
+{
+  "name": "example-yaml-lint",
+  "version": "1.0.0",
+  "description": "Example YAML linter plugin using yq",
+  "extensions": [".yaml", ".yml"],
+  "command": "./lint.sh",
+  "author": "doc-lint community",
+  "license": "MIT"
+}

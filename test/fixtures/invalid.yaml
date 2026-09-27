@@ -1,0 +1,13 @@
+# Invalid YAML test fixture
+name: doc-lint
+version: 1.0.0
+description: Test YAML file with syntax error
+dependencies:
+  - name: markdownlint
+    version: 0.22.1
+  - name: mermaid-cli
+    version: 11.6.0
+config:
+  parallel: true
+  cache: false
+  invalid: [unclosed bracket

@@ -1,0 +1,12 @@
+{
+  "name": "doc-lint",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CLI linting service for documentation artifacts (Markdown, Mermaid, JSON, XML).",
+  "type": "commonjs",
+  "dependencies": {
+    "markdownlint-cli2": "0.22.1",
+    "@mermaid-js/mermaid-cli": "^11.6.0",
+    "ajv": "^8.17.1"
+  }
+}

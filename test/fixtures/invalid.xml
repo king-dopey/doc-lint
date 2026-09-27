@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+  <metadata>
+    <title>Invalid XML Document</title>
+    <author>Test Suite</author>
+  </metadata>
+  <content>
+    <section id="intro">
+      <heading>Introduction</heading>
+      <paragraph>This document has unclosed tags.</paragraph>
+    </section>
+    <section id="details">
+      <heading>Details</heading>
+      <paragraph>Mismatched tags here.</p>
+    </section>
+  </content>

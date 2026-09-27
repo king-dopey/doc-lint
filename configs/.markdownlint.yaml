@@ -1,0 +1,53 @@
+# =============================================================================
+# Default markdownlint config bundled with the doc-lint image.
+# A repo-provided .markdownlint.{json,jsonc,yaml,yml,cjs,mjs} in the working
+# directory takes precedence (markdownlint-cli2 auto-discovers it).
+#
+# Tuned for AI-generated technical documentation:
+#   - Keep structural rules (headers, blank lines, list markers) ON.
+#   - Relax line-length and code-block rules that fight generated content.
+# =============================================================================
+default: true
+
+# MD013: Line length — allow long lines in tables/code, cap prose.
+MD013:
+  line_length: 120
+  tables: false
+  code_blocks: false
+  headings: false
+
+# MD033: Allow inline HTML (mermaid blocks, badges, anchors).
+MD033: true
+
+# MD041: First line should be a top-level heading — required for docs.
+MD041: true
+
+# MD036: No emphasis as heading — keep strict.
+MD036: true
+
+# MD028/MD029: Consistent heading style (ATX #).
+MD028: true
+MD029:
+  style: atx
+
+# MD047: File should end with a single newline.
+MD047: true
+
+# MD009: No trailing spaces.
+MD009:
+  br_spaces: 0
+  strict: false
+
+# MD012: Multiple blank lines.
+MD012: true
+
+# MD022: Blank lines around headings.
+MD022: true
+
+# MD031: Blank lines around code fences.
+MD031: true
+
+# MD040: Fenced code blocks should specify a language.
+MD040:
+  allowed_languages: []
+  style: consistent

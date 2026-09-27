@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+  <metadata>
+    <title>Valid XML Document</title>
+    <author>Test Suite</author>
+  </metadata>
+  <content>
+    <section id="intro">
+      <heading>Introduction</heading>
+      <paragraph>This is a well-formed XML document.</paragraph>
+    </section>
+    <section id="details">
+      <heading>Details</heading>
+      <paragraph>All tags are properly closed and nested.</paragraph>
+    </section>
+  </content>
+</document>
