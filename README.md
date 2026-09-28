@@ -165,17 +165,17 @@ Mount the working directory and pass file paths or directories to lint:
 # Lint specific files
 docker run --rm \
   -v "$PWD:/work" -w /work \
-  doc-lint:latest lint docs/CHANGELOG.md docs/api.md
+  doc-lint:latest docs/CHANGELOG.md docs/api.md
 
 # Lint an entire directory (recursively)
 docker run --rm \
   -v "$PWD:/work" -w /work \
-  doc-lint:latest lint docs/
+  doc-lint:latest docs/
 
 # Validate JSON against a JSON Schema
 docker run --rm \
   -v "$PWD:/work" -w /work \
-  doc-lint:latest lint --schema schemas/review-report.schema.json docs/review-report.json
+  doc-lint:latest --schema schemas/review-report.schema.json docs/review-report.json
 ```
 
 ### Output Formats
@@ -185,19 +185,19 @@ doc-lint supports multiple output formats for different use cases:
 ```bash
 # Human-readable text output (default)
 docker run --rm -v "$PWD:/work" -w /work \
-  doc-lint:latest lint --format text docs/
+  doc-lint:latest --format text docs/
 
 # JSON structured output (for programmatic consumption)
 docker run --rm -v "$PWD:/work" -w /work \
-  doc-lint:latest lint --format json docs/
+  doc-lint:latest --format json docs/
 
 # JUnit XML (for CI test reporting)
 docker run --rm -v "$PWD:/work" -w /work \
-  doc-lint:latest lint --format junit docs/ > test-results.xml
+  doc-lint:latest --format junit docs/ > test-results.xml
 
 # SARIF v2.1.0 (for GitHub Code Scanning)
 docker run --rm -v "$PWD:/work" -w /work \
-  doc-lint:latest lint --format sarif docs/ > results.sarif
+  doc-lint:latest --format sarif docs/ > results.sarif
 ```
 
 ### Parallel Processing
@@ -207,11 +207,11 @@ Enable parallel linting across file formats for improved performance:
 ```bash
 # Run linters in parallel (faster for large repositories)
 docker run --rm -v "$PWD:/work" -w /work \
-  doc-lint:latest lint --parallel docs/
+  doc-lint:latest --parallel docs/
 
 # Explicitly disable parallel processing (default behavior)
 docker run --rm -v "$PWD:/work" -w /work \
-  doc-lint:latest lint --no-parallel docs/
+  doc-lint:latest --no-parallel docs/
 ```
 
 ### Caching
@@ -223,11 +223,11 @@ Enable content-addressable caching to skip unchanged files:
 docker run --rm \
   -v "$PWD:/work" -w /work \
   -v doc-lint-cache:/home/linter/.cache/doc-lint \
-  doc-lint:latest lint --cache docs/
+  doc-lint:latest --cache docs/
 
 # Disable caching (default)
 docker run --rm -v "$PWD:/work" -w /work \
-  doc-lint:latest lint --no-cache docs/
+  doc-lint:latest --no-cache docs/
 
 # Clean old cache entries (older than 30 days)
 docker run --rm \
@@ -242,11 +242,11 @@ Exclude files or directories from linting:
 ```bash
 # Exclude specific patterns
 docker run --rm -v "$PWD:/work" -w /work \
-  doc-lint:latest lint --exclude '*.draft.md' --exclude 'vendor/*' docs/
+  doc-lint:latest --exclude '*.draft.md' --exclude 'vendor/*' docs/
 
 # Exclude multiple patterns
 docker run --rm -v "$PWD:/work" -w /work \
-  doc-lint:latest lint \
+  doc-lint:latest \
     --exclude 'node_modules/*' \
     --exclude '*.tmp' \
     --exclude 'archive/*' \
@@ -260,11 +260,11 @@ Automatically fix common linting violations:
 ```bash
 # Auto-fix violations (creates .bak backup files by default)
 docker run --rm -v "$PWD:/work" -w /work \
-  doc-lint:latest lint --fix docs/
+  doc-lint:latest --fix docs/
 
 # Auto-fix without creating backups
 docker run --rm -v "$PWD:/work" -w /work \
-  doc-lint:latest lint --fix --no-backup docs/
+  doc-lint:latest --fix --no-backup docs/
 ```
 
 **Supported auto-fixes:**
@@ -283,13 +283,13 @@ Extend doc-lint with custom linters using the plugin system:
 docker run --rm \
   -v "$PWD:/work" -w /work \
   -v "$PWD/plugins:/opt/lint/plugins" \
-  doc-lint:latest lint docs/
+  doc-lint:latest docs/
 
 # Use custom plugins directory location
 docker run --rm \
   -v "$PWD:/work" -w /work \
   -v "$PWD/my-plugins:/custom/plugins" \
-  doc-lint:latest lint --plugins-dir /custom/plugins docs/
+  doc-lint:latest --plugins-dir /custom/plugins docs/
 ```
 
 **Creating a plugin:**
@@ -427,7 +427,7 @@ docker run --rm \
   --security-opt=no-new-privileges \
   --cap-drop=ALL \
   -v "$PWD:/work" -w /work \
-  doc-lint:latest lint docs/
+  doc-lint:latest docs/
 ```
 
 **Flag explanations:**

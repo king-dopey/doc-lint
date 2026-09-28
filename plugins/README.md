@@ -27,7 +27,7 @@ docker run --rm \
   -v "$PWD:/work" \
   -v "$PWD/my-plugins:/opt/lint/plugins" \
   -w /work \
-  doc-lint:latest lint config.yaml
+  doc-lint:latest config.yaml
 ```
 
 ### Override Plugin Directory
@@ -38,7 +38,7 @@ docker run --rm \
   -v "$PWD:/work" \
   -v "$PWD/my-plugins:/custom/plugins" \
   -w /work \
-  doc-lint:latest lint config.yaml
+  doc-lint:latest config.yaml
 ```
 
 ## Creating a Plugin
@@ -147,7 +147,7 @@ docker run --rm \
   -v "$PWD:/work" \
   -v "$PWD/plugins:/opt/lint/plugins" \
   -w /work \
-  doc-lint:latest lint config.yaml
+  doc-lint:latest config.yaml
 ```
 
 ## Security Considerations

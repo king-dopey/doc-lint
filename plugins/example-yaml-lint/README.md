@@ -92,7 +92,7 @@ docker run --rm \
   -v "$PWD:/work" \
   -v "$PWD/plugins:/opt/lint/plugins" \
   -w /work \
-  doc-lint:latest lint config.yaml
+  doc-lint:latest config.yaml
 ```
 
 ### Test the plugin
@@ -109,7 +109,7 @@ docker run --rm \
   -v "$PWD:/work" \
   -v "$PWD/plugins:/opt/lint/plugins" \
   -w /work \
-  doc-lint:latest lint test.yaml
+  doc-lint:latest test.yaml
 ```
 
 ## Creating Your Own Plugin
@@ -141,7 +141,7 @@ docker run --rm \
   -v "$PWD:/work" \
   -v "$PWD/plugins:/opt/lint/plugins" \
   -w /work \
-  doc-lint:latest lint config.yaml
+  doc-lint:latest config.yaml
 ```
 
 ## Timeout

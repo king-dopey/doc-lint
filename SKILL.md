@@ -59,24 +59,24 @@ fi
 # Lint specific files (most common — pass the exact files you just wrote)
 docker run --rm \
   -v "$PWD:/work" -w /work \
-  doc-lint:latest lint docs/CHANGELOG.md docs/api.md
+  doc-lint:latest docs/CHANGELOG.md docs/api.md
 
 # Lint an entire directory (recursively picks up md/mmd/json/xml/yaml/toml)
-docker run --rm -v "$PWD:/work" -w /work doc-lint:latest lint docs/
+docker run --rm -v "$PWD:/work" -w /work doc-lint:latest docs/
 
 # Validate JSON against a JSON Schema
 docker run --rm \
   -v "$PWD:/work" -w /work \
-  doc-lint:latest lint --schema schemas/review-report.schema.json docs/review-report.json
+  doc-lint:latest --schema schemas/review-report.schema.json docs/review-report.json
 
 # Lint a file outside the repo (e.g., docs/plan.xml)
-docker run --rm -v "$PWD:/work" -w /work doc-lint:latest lint docs/plan.xml
+docker run --rm -v "$PWD:/work" -w /work doc-lint:latest docs/plan.xml
 
 # Lint YAML configuration files
-docker run --rm -v "$PWD:/work" -w /work doc-lint:latest lint config.yaml
+docker run --rm -v "$PWD:/work" -w /work doc-lint:latest config.yaml
 
 # Lint TOML configuration files
-docker run --rm -v "$PWD:/work" -w /work doc-lint:latest lint Cargo.toml
+docker run --rm -v "$PWD:/work" -w /work doc-lint:latest Cargo.toml
 ```
 
 ### Auto-fix mode
@@ -85,10 +85,10 @@ Automatically fix common linting violations (Markdown and JSON only):
 
 ```bash
 # Auto-fix violations (creates .bak backup files by default)
-docker run --rm -v "$PWD:/work" -w /work doc-lint:latest lint --fix docs/
+docker run --rm -v "$PWD:/work" -w /work doc-lint:latest --fix docs/
 
 # Auto-fix without creating backups
-docker run --rm -v "$PWD:/work" -w /work doc-lint:latest lint --fix --no-backup docs/
+docker run --rm -v "$PWD:/work" -w /work doc-lint:latest --fix --no-backup docs/
 ```
 
 **Note:** Auto-fix mode only supports Markdown and JSON. YAML, TOML, XML, and Mermaid files cannot be auto-fixed.
@@ -102,13 +102,13 @@ Extend doc-lint with custom linters:
 docker run --rm \
   -v "$PWD:/work" -w /work \
   -v "$PWD/plugins:/opt/lint/plugins" \
-  doc-lint:latest lint docs/
+  doc-lint:latest docs/
 
 # Use custom plugins directory location
 docker run --rm \
   -v "$PWD:/work" -w /work \
   -v "$PWD/my-plugins:/custom/plugins" \
-  doc-lint:latest lint --plugins-dir /custom/plugins docs/
+  doc-lint:latest --plugins-dir /custom/plugins docs/
 ```
 
 See [plugins/README.md](plugins/README.md) for plugin development guide.
